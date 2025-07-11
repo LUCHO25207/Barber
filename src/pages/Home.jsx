@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Link } from 'react-router-dom';  // Importa Link de React Router
 
 const titleText = "¡Bienvenido a VJR Style Barbershop, donde tu estilo importa!";
 
@@ -30,6 +31,9 @@ const child = {
   },
 };
 
+// Crea un componente MotionLink animado a partir de Link
+const MotionLink = motion(Link);
+
 function Home() {
   return (
     <motion.section
@@ -38,20 +42,20 @@ function Home() {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-     <div className="w-full overflow-x-auto">
-  <motion.h1
-  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 break-words max-w-full"
-  variants={container}
-  initial="hidden"
-  animate="visible"
->
-  {titleText.split("").map((char, index) => (
-    <motion.span key={index} variants={child}>
-      {char === " " ? "\u00A0" : char}
-    </motion.span>
-  ))}
-</motion.h1>
-</div>
+      <div className="w-full overflow-x-auto">
+        <motion.h1
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 break-words max-w-full"
+          variants={container}
+          initial="hidden"
+          animate="visible"
+        >
+          {titleText.split("").map((char, index) => (
+            <motion.span key={index} variants={child}>
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          ))}
+        </motion.h1>
+      </div>
 
       <motion.p
         className="text-lg text-gray-600 mb-2 max-w-xl"
@@ -105,18 +109,19 @@ function Home() {
         </Carousel>
       </motion.div>
 
-      <motion.a
-        href="/servicios"
-        className="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700"
+      <MotionLink
+        to="/servicios"
+        className="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 inline-block"
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.6 }}
         viewport={{ once: true }}
       >
         Ver Servicios
-      </motion.a>
+      </MotionLink>
     </motion.section>
   );
 }
 
 export default Home;
+
