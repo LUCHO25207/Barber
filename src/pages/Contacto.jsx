@@ -36,7 +36,7 @@ function Contacto() {
           <span>De lunes a lunes - 24/7</span>
         </div>
         <a
-          href="https://wa.me/549112345678"
+          href="https://wa.me/543884763550"
           target="_blank"
           rel="noopener noreferrer"
           className="mt-4 inline-flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"

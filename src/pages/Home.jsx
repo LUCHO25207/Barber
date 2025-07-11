@@ -2,6 +2,34 @@ import { motion } from 'framer-motion';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
+const titleText = "¡Bienvenido a VJR Style Barbershop, donde tu estilo importa!";
+
+const container = {
+  hidden: { opacity: 0 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    transition: { staggerChildren: 0.03, delayChildren: 0.04 * i },
+  }),
+};
+
+const child = {
+  hidden: {
+    opacity: 0,
+    y: 20,
+    scale: 0.8,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring",
+      damping: 12,
+      stiffness: 100,
+    },
+  },
+};
+
 function Home() {
   return (
     <motion.section
@@ -10,15 +38,20 @@ function Home() {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      <motion.h1
-        className="text-4xl font-bold mb-4"
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        Bienvenido a Barbería Jose
-      </motion.h1>
+     <div className="w-full overflow-x-auto">
+  <motion.h1
+  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 break-words max-w-full"
+  variants={container}
+  initial="hidden"
+  animate="visible"
+>
+  {titleText.split("").map((char, index) => (
+    <motion.span key={index} variants={child}>
+      {char === " " ? "\u00A0" : char}
+    </motion.span>
+  ))}
+</motion.h1>
+</div>
 
       <motion.p
         className="text-lg text-gray-600 mb-2 max-w-xl"
