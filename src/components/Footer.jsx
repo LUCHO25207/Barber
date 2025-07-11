@@ -36,7 +36,7 @@ function Footer() {
             <FaInstagram />
           </a>
           <a
-            href="https://wa.me/5491123456789"  // reemplazá por tu número real
+            href="https://wa.me/543884763550"  // reemplazá por tu número real
             target="_blank"
             rel="noreferrer"
             className="hover:text-green-400"
