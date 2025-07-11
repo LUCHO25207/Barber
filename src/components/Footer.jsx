@@ -18,7 +18,7 @@ function Footer() {
         {/* Íconos de contacto */}
         <div className="flex gap-4 text-xl">
           <a
-            href="mailto:ejemplo@email.com"
+            href="yucgra.luis@gmail.com"
             target="_blank"
             rel="noreferrer"
             className="hover:text-blue-400"
@@ -36,7 +36,7 @@ function Footer() {
             <FaInstagram />
           </a>
           <a
-            href="https://wa.me/549112345678"
+            href="#"
             target="_blank"
             rel="noreferrer"
             className="hover:text-green-400"
